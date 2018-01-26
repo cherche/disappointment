@@ -1,12 +1,10 @@
 # disappointment
-A huge disappointment.
-
-## What?
-Did you expect something cool? Instead, have yet another Discord bot built in node.
-At least it was fun to make ...
+Yet another Discord bot built with node.
 
 ## Usage
 ```bash
 cd /path/to/disappointment
 node index.js
 ```
+
+You can add your own commands in `commands.js`.

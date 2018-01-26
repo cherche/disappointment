@@ -11,7 +11,7 @@ client.on('ready', () => {
 client.on('message', (msg) => {
   if (msg.author.bot) return
 
-  const content = msg.content.trim()
+  const content = msg.content.trim().toLowerCase()
   if (!content.startsWith(config.prefix)) return
 
   // Separate name of command and arguments to make
@@ -22,10 +22,10 @@ client.on('message', (msg) => {
     .trim()
     .split(' ')
 
-  commands.try(name, args)
+  commands.try({ name, args, msg })
   // Will reply to the sender of the command
   // ... Eventually
-  .then(res => msg.reply(res))
+  .then(res => msg.channel.send(...res))
   .catch((error) => {
     console.log(`command ${name} with [${args.toString()}] failed`)
     console.log(error)
